@@ -73,14 +73,14 @@ namespace WebEps
                     HttpWebRequest req = WebRequest.Create(inURL) as HttpWebRequest;
                     req.KeepAlive = false;
                     req.Method = "POST";
-                    string FilePath = @"C:\person-Artha.xml";
-                    string content = (File.OpenText(@FilePath)).ReadToEnd();
+                    //string FilePath = @"C:\person-Artha.xml";
+                    //string content = (File.OpenText(@FilePath)).ReadToEnd();
 
-                    byte[] buffer = Encoding.ASCII.GetBytes(content);
-                    req.ContentLength = buffer.Length;
+                    //byte[] buffer = Encoding.ASCII.GetBytes(content);
+                    //req.ContentLength = buffer.Length;
                     req.ContentType = "text/xml";
                     Stream PostData = req.GetRequestStream();
-                    PostData.Write(buffer, 0, buffer.Length);
+                    //PostData.Write(buffer, 0, buffer.Length);
                     PostData.Close();
 
                     HttpWebResponse resp = req.GetResponse() as HttpWebResponse;
@@ -102,6 +102,50 @@ namespace WebEps
             }
             return false;
         }
+
+        // send file C:\person-Artha.xml sample
+        //public bool postMethod(string inURL)
+        //{
+        //    if (!string.IsNullOrEmpty(inURL))
+        //    {
+        //        try
+        //        {
+        //            HttpWebRequest req = WebRequest.Create(inURL) as HttpWebRequest;
+        //            req.KeepAlive = false;
+        //            req.Method = "POST";
+        //            string FilePath = @"C:\person-Artha.xml";
+        //            string content = (File.OpenText(@FilePath)).ReadToEnd();
+
+        //            byte[] buffer = Encoding.ASCII.GetBytes(content);
+        //            req.ContentLength = buffer.Length;
+        //            req.ContentType = "text/xml";
+        //            Stream PostData = req.GetRequestStream();
+        //            PostData.Write(buffer, 0, buffer.Length);
+        //            PostData.Close();
+
+        //            HttpWebResponse resp = req.GetResponse() as HttpWebResponse;
+        //            Encoding enc = System.Text.Encoding.GetEncoding(1252);
+        //            StreamReader loResponseStream = new StreamReader(resp.GetResponseStream(), enc);
+
+        //            string Response = loResponseStream.ReadToEnd();
+        //            loResponseStream.Close();
+        //            resp.Close();
+        //            return true;
+        //            //Console.WriteLine(Response);
+        //        }
+        //        //catch
+        //        catch (Exception ex)
+        //        {
+        //            Console.WriteLine(ex.Message.ToString());
+        //            return false;
+        //        }
+        //    }
+        //    return false;
+        //}
+
+
+
+
 
         protected void SubmitBtn_Click(object sender, EventArgs e)
         {
